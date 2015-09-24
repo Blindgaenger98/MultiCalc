@@ -31,8 +31,6 @@ namespace Test
             {
                 Output = Input2 - Input1;
             }
-            //if (Input1)
-
             lbOut.Text = Output.ToString();
 
 
@@ -47,24 +45,50 @@ namespace Test
 
             Input = Convert.ToDouble(tbM1.Text);
 
+            //Eingabe erster Wert
             if (rbvFuß.Checked)
             {
+                if (rbFuß.Checked)
+                {
+                    OutputStecke = Input;
+                    goto Ende;
+                }
                 InputMeter = Input * 0.3048;
             }
             if (rbvZoll.Checked)
             {
+                if (rbZoll.Checked)
+                {
+                    OutputStecke = Input;
+                    goto Ende;
+                }
                 InputMeter = Input * 0.0254;
             }
             if (rbvYard.Checked)
             {
+                if (rbYard.Checked)
+                {
+                    OutputStecke = Input;
+                    goto Ende;
+                }
                 InputMeter = Input * 0.9144;
             }
             if (rbvFathom.Checked)
             {
+                if (rbFathom.Checked)
+                {
+                    OutputStecke = Input;
+                    goto Ende;
+                }
                 InputMeter = Input * 0.546806649;
             }
             if (rbvRod.Checked)
             {
+                if (rbRod.Checked)
+                {
+                    OutputStecke = Input;
+                    goto Ende;
+                }
                 InputMeter = Input * 5.0292;
             }
             if (rbvLichtjahre.Checked)
@@ -73,12 +97,23 @@ namespace Test
             }
             if (rbvparsec.Checked)
             {
+                if (rbvparsec.Checked)
+                {
+                    OutputStecke = Input;
+                    goto Ende;
+                }
                 InputMeter = Input * 30856780000000000;
             }
             if (rbvÅngström.Checked)
             {
+                if(rbÅngström.Checked)
+                {
+                    OutputStecke = Input;
+                    goto Ende;
+                }
                 InputMeter = Input * 0.0000000001;
             }
+            //Eingabe zweiter Wert
             if (rbvMeter.Checked)
             {
                 InputMeter = Input;
@@ -119,8 +154,14 @@ namespace Test
             {
                 OutputStecke = InputMeter;
             }
-            OutputStecke = Math.Round(OutputStecke,6);
-            lbMout.Text = OutputStecke.ToString();
+            //Ausgabe des Ergebinnis
+            goto Ende;
+            Ende:
+            {
+                OutputStecke = Math.Round(OutputStecke, 6);
+                lbMout.Text = OutputStecke.ToString();
+            }                     
+            
         }
 
     }
